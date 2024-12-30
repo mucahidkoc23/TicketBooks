@@ -1,15 +1,18 @@
 const Booking = require("./booking");
 
 class Passanger {
-  constructor(name, location) {
+  constructor(name, location, bookings = []) {
     this.name = name;
-    this.bookings = [];
     this.location = location;
+    this.bookings = bookings;
   }
   book(driver, destination, origin) {
     const booking = new Booking(driver, this, origin, destination);
     this.bookings.push(booking);
     return booking;
+  }
+  static create({ name, location, bookings }) {
+    return new Passanger(name, location, bookings);
   }
 }
 
