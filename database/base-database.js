@@ -21,13 +21,25 @@ class BaseDatabase {
 
   insert(object) {
     const objects = this.load();
-    save(objects.concat(object));
+    this.save(objects.concat(object));
   }
 
   remove(index) {
     const objects = this.load();
     objects.splice(index, 1);
-    save(objects);
+    this.save(objects);
+  }
+
+  update(object) {
+    const objects = this.load();
+    const index = objects.findIndex((o) => o.id == object.id);
+    if(index == -1) throw new Error(`Cannot find ${this.model.name} instance with id ${object.id}`)
+    objects.splice(index, 1, object);
+    this.save(objects);
+  }
+  
+  findBy(property, value) {
+    return this.load().find(o => o[property] == value);
   }
 }
 

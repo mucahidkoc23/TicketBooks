@@ -1,7 +1,9 @@
 const Booking = require("./booking");
+const uuid = require("uuid");
 
 class Passanger {
-  constructor(name, location, bookings = []) {
+  constructor(id = uuid.v4(), name, location, bookings = []) {
+    this.id = id;
     this.name = name;
     this.location = location;
     this.bookings = bookings;
@@ -11,8 +13,8 @@ class Passanger {
     this.bookings.push(booking);
     return booking;
   }
-  static create({ name, location, bookings }) {
-    return new Passanger(name, location, bookings);
+  static create({ id, name, location, bookings }) {
+    return new Passanger(id, name, location, bookings);
   }
 }
 

@@ -1,11 +1,10 @@
 const colors = require("colors");
 const Passanger = require("./passenger");
 const Driver = require("./driver");
-const driverDatabase = require("./driver-database");
-const passangerDatabase = require("./passanger-database");
+const { passangerDatabase, driverDatabase } = require("./database");
 
-const mucahid = new Passanger("Mucahid", "Trier");
-const enes = new Driver("Enes", "University");
+const mucahid =Passanger.create({name: "Mucahid", location: "Berlin"});
+const enes = Driver.create({name: "Enes", location: "Trier"});
 
 mucahid.book(enes, "Berlin", "Trier");
 mucahid.book(enes, "Koln", "Dusseldof");
@@ -21,16 +20,19 @@ function printBooking(booking) {
 }
 
 function printBookingHistory(passanger) {
-  if(passanger.bookings.length === 0) {
+  if (passanger.bookings.length === 0) {
     return console.log(`${colors.blue(passanger.name)} has no booking yet`);
   }
   passanger.bookings.forEach(printBooking);
 }
-passangerDatabase.save([mucahid]);
+
+// passangerDatabase.save([mucahid]);
+const passengers = passangerDatabase.load();
+passengers.forEach(printBookingHistory);
+
 // db.save("passengers", [mucahid]);
 // db.save("drivers", [enes]);
 // const passengers = db.load("passengers");
-// passengers.forEach(printBookingHistory);
 
 // const betul = new Passanger("betül", "öz");
 
@@ -42,8 +44,10 @@ passangerDatabase.save([mucahid]);
 
 // printBookingHistory(mucahid);
 
-const mucahid2 = passangerDatabase.findByName("Mucahid");
-mucahid2.book(enes, "TXL", "FXL");
+// const mucahid = passangerDatabase.findByName("Mucahid");
+// printBookingHistory(mucahid);
+mucahid.book(enes, "Trier", "Koln");
+passangerDatabase.update(mucahid);
+
 // console.log(mucahid);
-printBookingHistory(mucahid2);
 // passengers.forEach(p => console.log(p.name));

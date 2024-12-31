@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "flatted": "^3.3.2"
+    "flatted": "^3.3.2",
+    "uuid": "^11.0.3"
   }
 }
