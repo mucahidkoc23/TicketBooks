@@ -2,12 +2,12 @@ const BaseDatabase = require("./base-database");
 const Driver = require("../models/driver");
 
 class DriverDatabase extends BaseDatabase {
-  findByDriverName(name) {
-    return this.findBy("name", name);
+  async findByDriverName(name) {
+    return await this.findBy("name", name);
   }
 
-  findByLocation(location) {
-    return this.findBy("location", location);
+  async findByLocation(location) {
+    return await this.findBy("location", location);
   }
 }
 
