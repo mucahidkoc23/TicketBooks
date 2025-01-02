@@ -1,14 +1,10 @@
-const { passangerDatabase, driverDatabase } = require("./database");
-const printBookingHistory = require("./lib/print-booking-history");
+const express = require("express");
+const app = express();
 
-async function main() {
-  const enes = await driverDatabase.findBy("name", "Enes");
-  const mucahid = await passangerDatabase.findByName("Mucahid");
+app.get("/", (req, res) => {
+  res.send("Hello world");
+});
 
-  mucahid.book(enes, "Trier", "Koln");
-  passangerDatabase.update(mucahid);
-  printBookingHistory(mucahid);
-  // console.log(await passangerDatabase.findBy("location", "Berlin"));
-}
-
-main();
+app.listen(3000, () => {
+  console.log("Started listening port 3000");
+});
