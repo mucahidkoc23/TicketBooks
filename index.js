@@ -1,14 +1,26 @@
 const express = require("express");
 const { passangerDatabase } = require("./database");
 const flatted = require("flatted");
+const bodyParser = require("body-parser");
 const app = express();
 
+app.use(bodyParser.json());
 app.set("view engine", "pug");
 
 app.get("/passengers", async (req, res) => {
   const passengers = await passangerDatabase.load();
   // res.send(flatted.stringify(passengers));
   res.render(`passengers`, { passengers });
+});
+
+app.post("/passengers", async (req, res) => {
+  const passenger = await passangerDatabase.insert(req.body);
+  res.send(passenger);
+});
+
+app.delete("/passengers/:passengerId", async (req, res) => {
+  await passangerDatabase.removeBy("id", req.params.passengerId);
+  res.send("Passenger removed");
 });
 
 app.get("/passengers/:passengerId", async (req, res) => {

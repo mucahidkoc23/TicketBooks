@@ -11,6 +11,7 @@
   "author": "Mucahid KOC <mucahidkoc.tr@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "colors": "^1.4.0",
     "express": "^4.21.2",
     "flatted": "^3.3.2",
