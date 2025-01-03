@@ -1,18 +1,10 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-  body 
-    h1 Hello Welcome Booking App 
-    p  Bookings
-
-    h2 Passengers
-    p2  Bookings #{passengers.length}
-     
-     ol 
-      each passenger in passengers
-        li
-          a(href=`/passengers/${passenger.id}`) #{passenger.name}
-          
+extends layout
+block content
+  h2 Passengers
+  p2  Bookings #{passengers.length}
+    
+    ol 
+    each passenger in passengers
+      li
+        a(href=`/passengers/${passenger.id}`) #{passenger.name}
+        
