@@ -3,6 +3,7 @@ const indexRouter = require("./routes/index");
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+require("./mongo-connection");
 
 app.use(bodyParser.json());
 app.set("view engine", "pug");
