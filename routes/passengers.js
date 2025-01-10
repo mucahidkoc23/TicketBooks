@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
 });
 
 router.delete("/:passengerId", async (req, res) => {
-  await passangerDatabase.removeBy("id", req.params.passengerId);
+  await passangerDatabase.removeBy("_id", req.params.passengerId);
   res.send("Passenger removed");
 });
 
@@ -35,6 +35,12 @@ router.get("/:passengerId/bookings", async (req, res) => {
   passenger.book(driver, origin, destination);
   await passangerDatabase.update(passenger);
   res.send(flatted.stringify(passenger));
+});
+
+router.patch("/:passengerId", async (req, res) => {
+  const { passengerId } = req.params;
+  const { name } = req.body;
+  await passangerDatabase.update(passengerId, { name });
 });
 
 module.exports = router;
