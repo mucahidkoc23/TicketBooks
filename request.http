@@ -5,7 +5,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/passengers/6782788e3dda8751a31a54da HTTP/1.1
+GET http://localhost:3000/passengers/678292faa8c8b7f9df53764b HTTP/1.1
 
 ###
 
@@ -31,11 +31,18 @@ DELETE  http://localhost:3000/drivers/6782708602c17f1c67d76cdb HTTP/1.1
 
 ###
 
-POST http://localhost:3000/passengers/67827f83e5bf88a306be51d1/bookings HTTP/1.1
+POST http://localhost:3000/passengers/678292faa8c8b7f9df53764b/bookings HTTP/1.1
 Content-Type: application/json
 
 {
-  "driverId": "67827f92e5bf88a306be51d3",
-  "origin": "Kuzguncuk",
-  "destination": "Beykoz"
+  "driverId": "6782930ca8c8b7f9df53764f",
+  "origin": "Bebek",
+  "destination": "Maltepe"
 }
+
+###
+
+PATCH  http://localhost:3000/drivers/6782930ca8c8b7f9df53764f HTTP/1.1
+Content-Type: application/json
+
+{"name": "Eyüp"}

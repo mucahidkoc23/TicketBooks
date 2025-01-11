@@ -1,14 +1,14 @@
-const { passengerDatabase, driverDatabase } = require("./database");
+const { passengerService, driverService } = require("./services");
 const printBookingHistory = require("./lib/print-booking-history");
 
 async function main() {
-  const enes = await driverDatabase.findBy("name", "Enes");
-  const mucahid = await passengerDatabase.findByName("Mucahid");
+  const enes = await driverService.findBy("name", "Enes");
+  const mucahid = await passengerService.findByName("Mucahid");
 
   mucahid.book(enes, "Trier", "Koln");
-  passengerDatabase.update(mucahid);
+  passengerService.update(mucahid);
   printBookingHistory(mucahid);
-  // console.log(await passengerDatabase.findBy("location", "Berlin"));
+  // console.log(await passengerService.findBy("location", "Berlin"));
 }
 
 main();
