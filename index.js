@@ -1,5 +1,6 @@
 const passengersRouter = require("./routes/passengers");
 const driverRouter = require("./routes/driver");
+const bookingsRouter = require("./routes/bookings");
 const indexRouter = require("./routes/index");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -11,6 +12,7 @@ app.set("view engine", "pug");
 
 app.use("/passengers", passengersRouter);
 app.use("/drivers", driverRouter);
+app.use("/bookings", bookingsRouter);
 
 app.use("/", indexRouter);
 

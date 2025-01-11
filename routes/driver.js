@@ -17,6 +17,11 @@ router.delete("/:driverId", async (req, res) => {
   res.send("driver removed");
 });
 
+router.get("/young-drivers", async (req, res) => {
+  const drivers = await driverService.findYoungDrivers();
+  res.render(`drivers`, { drivers });
+});
+
 router.get("/:driverId", async (req, res) => {
   const driver = await driverService.find(req.params.driverId);
   if (!driver) return res.status(404).send("driver not found");
@@ -30,4 +35,3 @@ router.patch("/:driverId", async (req, res) => {
 });
 
 module.exports = router;
-
