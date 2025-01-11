@@ -1,11 +1,11 @@
 POST http://localhost:3000/passengers HTTP/1.1
 Content-Type: application/json
 
-{"name": "Client" , "location": "YesilTeper"}
+{"name": "Client" , "location": "kuzguncuk"}
 
 ###
 
-GET http://localhost:3000/passengers/67825b456339085e6680c396 HTTP/1.1
+GET http://localhost:3000/passengers/6782788e3dda8751a31a54da HTTP/1.1
 
 ###
 
@@ -13,8 +13,29 @@ DELETE  http://localhost:3000/passengers/67825b456339085e6680c396 HTTP/1.1
 
 ###
 
-PATCH  http://localhost:3000/passengers/67825b6d6339085e6680c39c HTTP/1.1
+PATCH  http://localhost:3000/passengers/6782703302c17f1c67d76cd7 HTTP/1.1
 Content-Type: application/json
 
-{"name": "New Client 55" , "location": "Yesilyurt"}
+{"name": "Enes" , "location": "Yesilyurt"}
 
+###
+
+POST http://localhost:3000/drivers HTTP/1.1
+Content-Type: application/json
+
+{"name": "Mücahid" , "location": "kuzguncuk"}
+
+###
+
+DELETE  http://localhost:3000/drivers/6782708602c17f1c67d76cdb HTTP/1.1
+
+###
+
+POST http://localhost:3000/passengers/67827f83e5bf88a306be51d1/bookings HTTP/1.1
+Content-Type: application/json
+
+{
+  "driverId": "67827f92e5bf88a306be51d3",
+  "origin": "Kuzguncuk",
+  "destination": "Beykoz"
+}

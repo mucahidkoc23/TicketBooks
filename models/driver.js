@@ -1,14 +1,8 @@
-const uuid = require("uuid");
+const moongose = require("mongoose");
 
-class Driver {
-  constructor(id = uuid.v4(), name, location) {
-    this.id = id;
-    this.name = name;
-    this.location = location;
-  }
-  static create({id, name, location }) {
-    return new Driver(id, name, location);
-  }
-}
+const DriverSchmea = new moongose.Schema({
+  name: String,
+  location: String,
+})
 
-module.exports = Driver;
+module.exports = moongose.model("Driver", DriverSchmea);

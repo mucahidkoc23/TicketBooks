@@ -25,16 +25,15 @@ router.get("/:passengerId", async (req, res) => {
   res.render(`passenger`, { passenger });
 });
 
-router.get("/:passengerId/bookings", async (req, res) => {
+router.post("/:passengerId/bookings", async (req, res) => {
   const { driverId, origin, destination } = req.body;
   const { passengerId } = req.params;
 
   const passenger = await passengerDatabase.find(passengerId);
   const driver = await driverDatabase.find(driverId);
 
-  passenger.book(driver, origin, destination);
-  await passengerDatabase.update(passenger);
-  res.send(flatted.stringify(passenger));
+  const booking = await passenger.book(driver, origin, destination);
+  res.send(booking);
 });
 
 router.patch("/:passengerId", async (req, res) => {

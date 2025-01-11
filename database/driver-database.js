@@ -3,11 +3,11 @@ const Driver = require("../models/driver");
 
 class DriverDatabase extends BaseDatabase {
   async findByDriverName(name) {
-    return await this.findBy("name", name);
+    return this.findBy("name", name);
   }
 
   async findByLocation(location) {
-    return await this.findBy("location", location);
+    return this.findBy("location", location);
   }
 }
 
