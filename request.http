@@ -1,18 +1,20 @@
 POST http://localhost:3000/passengers HTTP/1.1
 Content-Type: application/json
-{"name": "New Client" , "location": "Yesilyurt"}
+
+{"name": "Client" , "location": "YesilTeper"}
 
 ###
 
-GET http://localhost:3000/passengers/6780f9752d9e740b4e1b3d35 HTTP/1.1
+GET http://localhost:3000/passengers/67825b456339085e6680c396 HTTP/1.1
 
 ###
 
-DELETE  http://localhost:3000/passengers/6780f90fc4619b6967b442b4 HTTP/1.1
+DELETE  http://localhost:3000/passengers/67825b456339085e6680c396 HTTP/1.1
 
 ###
 
-PATCH  http://localhost:3000/passengers/6780fc652d9e740b4e1b3d3d HTTP/1.1
+PATCH  http://localhost:3000/passengers/67825b6d6339085e6680c39c HTTP/1.1
 Content-Type: application/json
-{"name": "New Client 5" , "location": "Yesilyurt"}
+
+{"name": "New Client 55" , "location": "Yesilyurt"}
 

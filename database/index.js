@@ -1,4 +1,4 @@
-const passangerDatabase = require("./passanger-database");
+const passengerDatabase = require("./passenger-database");
 const driverDatabase = require("./driver-database");
 
-module.exports = { passangerDatabase, driverDatabase };
+module.exports = { passengerDatabase, driverDatabase };

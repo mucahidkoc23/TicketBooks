@@ -1,7 +1,7 @@
 class Booking {
-  constructor(driver, passanger, origin, destination) {
+  constructor(driver, passenger, origin, destination) {
     this.driver = driver;
-    this.passanger = passanger;
+    this.passenger = passenger;
     this.destination = destination;
     this.origin = origin;
   }
