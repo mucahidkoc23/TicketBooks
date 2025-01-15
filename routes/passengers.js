@@ -29,7 +29,12 @@ router.post("/:passengerId/bookings", async (req, res) => {
   const { driverId, origin, destination } = req.body;
   const { passengerId } = req.params;
 
-  const booking = await passengerService.book(driverId, passengerId, origin, destination);
+  const booking = await passengerService.book(
+    driverId,
+    passengerId,
+    origin,
+    destination
+  );
   res.send(booking);
 });
 
